@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
 - test-project.yaml
+- hodl-project.yaml
