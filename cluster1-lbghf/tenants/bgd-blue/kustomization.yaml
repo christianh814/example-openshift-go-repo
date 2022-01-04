@@ -3,3 +3,11 @@ kind: Kustomization
 
 bases:
 - https://gitlab.com/christianh814/test-applicationsets/list-generator/ocp/overlays/blue#main
+
+patchesJson6902:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: bgd
+    path: bgd-deployment.yaml
