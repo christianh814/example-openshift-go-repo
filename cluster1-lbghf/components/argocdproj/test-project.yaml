@@ -3,12 +3,4 @@ kind: AppProject
 metadata:
   name: test-project
   namespace: openshift-gitops
-spec:
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  destinations:
-  - namespace: '*'
-    server: '*'
-  sourceRepos:
-  - '*'
+spec: {}
