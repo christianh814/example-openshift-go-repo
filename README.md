@@ -55,7 +55,7 @@ cluster1-lbghf/ # 1
         └── myapp-service.yaml
 ```
 | # | Directory Name | Description |
-|---|-----|-----------------|
+|---|----------------|-----------------|
 | 1. | `cluster1-lbghf` | This is the cluster name. This name should be unique to the specific cluster you're targeting. For OpenShift, I like to use the output of `kubectl get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`|
 | 2. | `bootstrap` | This is where bootstrapping specifc configurations are stored. These are items that get the cluster/automation started. They are usually install manifests. `base` is where are the "common" YAML would live and `overlays` are configurations specific to the cluster. The `kustomization.yaml` file in `default` has `cluster1-lbghf/components/applicationsets/` and `cluster1-lbghf/components/argocdproj/` as a part of it's `bases` config.|
 | 3. | `components` | This is where specific components for the GitOps Controller lives (in this case Argo CD). `applicationsets` is where all the ApplicationSets YAMLs live and `argocdproj` is where the ArgoAppProject YAMLs live. Other things that can live here are RBAC, Git repo, and other Argo CD specific configurations (each in their repsective directories).|
