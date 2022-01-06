@@ -61,3 +61,33 @@ cluster-XXXX/ # 1
 | 3. | `components` | This is where specific components for the GitOps Controller lives (in this case Argo CD). `applicationsets` is where all the ApplicationSets YAMLs live and `argocdproj` is where the ArgoAppProject YAMLs live. Other things that can live here are RBAC, Git repo, and other Argo CD specific configurations (each in their repsective directories).|
 | 4. | `core` | This is where YAML for the core functionality of the cluster live. Here is where the Kubernetes administrator will put things that is necissary for the functionality of the cluster. Under `openshift-gitops` is where you are using Argo CD to manage itself. The `kustomization.yaml` file uses `cluster-XXXX/bootstrap/overlays/default` in it's `bases` configuration. This `core` directory gets deployed as an applicationset which can be found under `cluster-XXXX/components/applicationsets/core-components-appset.yaml`. To add a new "core functionality" worokoad, one needs to add a directory with some yaml in the `core` directory. See the `container-security-operator` directory as an example.|
 | 5. | `tenants` | This is where the workloads for this cluster live. Similar to `core`, the `tenants` directory gets loaded as part of an ApplicationSet that is under `cluster-XXXX/components/applicationsets/tenants-appset.yaml`. This is where Devlopers/Release Engineers do the work. They just need to commit a directory with some YAML and the applicationset takes care of creating the workload. Note that `bgd-blue/kustomization.yaml` file points to another Git repo. This is to show that you can host your YAML in one repo, or many repos.|
+
+# Testing
+
+To see this in action, just apply this repo.
+
+```shell
+until kubectl apply -k https://github.com/christianh814/example-openshift-go-repo/cluster-XXXX/bootstrap/overlays/default; do sleep 3; done
+```
+
+This should give you 4 applications
+
+```shell
+$ kubectl get applications -n openshift-gitops
+NAME                          SYNC STATUS   HEALTH STATUS
+bgd-blue                      Synced        Healthy
+container-security-operator   Synced        Healthy
+myapp                         Synced        Healthy
+openshift-gitops              Synced        Healthy
+```
+
+Backed by 2 applicationsets
+
+```shell
+$ kubectl get appsets -n openshift-gitops
+NAME      AGE
+cluster   110s
+tenants   110s
+```
+
+Feel free to fork this and play around with it.

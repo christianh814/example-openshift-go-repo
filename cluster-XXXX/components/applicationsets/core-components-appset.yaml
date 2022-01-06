@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/christianh814/test-openshift-go-repo
+      repoURL: https://github.com/christianh814/example-openshift-go-repo
       revision: main
       directories:
       - path: cluster-XXXX/core/*
@@ -26,7 +26,7 @@ spec:
             factor: 2
             maxDuration: 5m
       source:
-        repoURL: https://github.com/christianh814/test-openshift-go-repo
+        repoURL: https://github.com/christianh814/example-openshift-go-repo
         targetRevision: main
         path: '{{path}}'
       destination:
