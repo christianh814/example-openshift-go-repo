@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/christianh814/test-openshift-go-repo
       revision: main
       directories:
-      - path: cluster1-lbghf/tenants/*
+      - path: cluster-XXXX/tenants/*
   template:
     metadata:
       name: '{{path.basename}}'
