@@ -54,6 +54,8 @@ cluster1-lbghf/ # 1
         ├── myapp-route.yaml
         └── myapp-service.yaml
 ```
+| Level | Description |
+|---|-----------------|
 
 | 1. | `cluster1-lbghf` This is the cluster name. This name should be unique to the specific cluster you're targeting. For OpenShift, I like to use the output of `kubectl get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`|
 | 2. | `bootstrap` This is where bootstrapping specifc configurations are stored. These are items that get the cluster/automation started. They are usually install manifests. `base` is where are the "common" YAML would live and `overlays` are configurations specific to the cluster. The `kustomization.yaml` file in `default` has `cluster1-lbghf/components/applicationsets/` and `cluster1-lbghf/components/argocdproj/` as a part of it's `bases` config.|
