@@ -3,9 +3,9 @@ kind: Kustomization
 
 bases:
 - ../../base
+- ../../../components/applicationsets
+- ../../../components/argocdproj
 
 resources:
 - openshift-gitops-argocd.yaml
 - openshift-gitops-rbac-policy.yaml
-- ../../../components/applicationsets
-- ../../../components/argocdproj
