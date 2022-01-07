@@ -90,4 +90,8 @@ cluster   110s
 tenants   110s
 ```
 
-Feel free to fork this and play around with it.
+# Enjoy
+
+Fork and Enjoy
+
+> :warning: Feel free to fork this and play around with it, but remember if you'll have to change the applicationsets configuration and where the bases are pointing to if you're chanigng names of things
