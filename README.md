@@ -90,6 +90,12 @@ cluster   110s
 tenants   110s
 ```
 
+Visit the Argo CD UI to see it visualized, get the route by running (use "LOG IN VIA OPENSHIFT"):
+
+```shell
+kubectl get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'
+```
+
 # Enjoy
 
 Fork and Enjoy
