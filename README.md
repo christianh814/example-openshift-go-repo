@@ -11,6 +11,9 @@ a good starting point and not what your final repo will look like.
 
 This is based on Argo CD but the same principals can be applied to Flux.
 
+I streamed about this [here](https://www.youtube.com/watch?v=o_lcRoiFtUU) if
+you'd like to see it created live.
+
 # Structure
 
 Below is an explanation on how this repo is laid out. You'll notice
